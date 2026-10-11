@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth" id="html-root">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">فيتنس زون | Fitness Zone - صالة رياضية متكاملة</title>
+    
+    <!-- Google Fonts: Readex Pro & Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;600;700;800&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            neon: '#CCFF00',
+                            cyan: '#00E5FF',
+                            dark: '#0B0F17',
+                            card: '#161F30',
+                            cardHover: '#1E2B42',
+                            accent: '#1E293B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Readex Pro', 'Tajawal', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-glow': '0 0 20px rgba(204, 255, 0, 0.35)',
+                        'cyan-glow': '0 0 20px rgba(0, 229, 255, 0.35)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #CCFF00;
+        }
+        .hero-bg-overlay {
+            background: linear-gradient(180deg, rgba(11, 15, 23, 0.8) 0%, rgba(11, 15, 23, 0.95) 80%, #0B0F17 100%),
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .text-glow {
+            text-shadow: 0 0 12px rgba(204, 255, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-neon selection:text-black overflow-x-hidden">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-brand-neon text-black font-black flex items-center justify-center text-2xl shadow-neon-glow group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <div class="flex flex-col text-start">
+                        <span class="text-2xl font-extrabold tracking-tight text-white group-hover:text-brand-neon transition-colors" data-i18n="logo-name">
+                            فيتنس<span class="text-brand-neon">زون</span>
+                        </span>
+                        <span class="text-[10px] text-slate-400 tracking-widest uppercase -mt-1" data-i18n="logo-sub">FITNESS ZONE GYM</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-slate-300 text-sm">
+                    <a href="#home" class="hover:text-brand-neon transition-colors py-2 border-b-2 border-transparent hover:border-brand-neon" data-i18n="nav-home">الرئيسية</a>
+                    <a href="#features" class="hover:text-brand-neon transition-colors py-2 border-b-2 border-transparent hover:border-brand-neon" data-i18n="nav-features">المميزات</a>
+                    <a href="#schedule" class="hover:text-brand-neon transition-colors py-2 border-b-2 border-transparent hover:border-brand-neon" data-i18n="nav-schedule">الجدول الأسبوعي</a>
+                    <a href="#plans" class="hover:text-brand-neon transition-colors py-2 border-b-2 border-transparent hover:border-brand-neon" data-i18n="nav-plans">الباقات والاشتراكات</a>
+                    <a href="#location" class="hover:text-brand-neon transition-colors py-2 border-b-2 border-transparent hover:border-brand-neon" data-i18n="nav-location">الموقع والتواصل</a>
+                </nav>
+
+                <!-- Action & Language Toggle Buttons -->
+                <div class="hidden md:flex items-center gap-4">
+                    <button id="lang-toggle" class="bg-brand-card hover:bg-brand-cardHover border border-slate-700 text-brand-neon font-bold px-4 py-2.5 rounded-xl text-xs transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-globe"></i>
+                        <span id="lang-text">English</span>
+                    </button>
+                    <a href="#plans" class="bg-brand-neon text-black font-bold px-6 py-2.5 rounded-xl hover:bg-white hover:shadow-neon-glow transition-all duration-300 transform hover:-translate-y-0.5" data-i18n="cta-join">
+                        انضم إلينا الآن
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="lang-toggle-mobile" class="bg-brand-card border border-slate-700 text-brand-neon px-3 py-2 rounded-lg text-xs font-bold">
+                        EN / AR
+                    </button>
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-brand-neon p-2 rounded-lg focus:outline-none" aria-label="القائمة">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card/95 backdrop-blur-lg border-b border-slate-800 px-4 pt-2 pb-6 space-y-3 text-center">
+            <a href="#home" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-neon" data-i18n="nav-home">الرئيسية</a>
+            <a href="#features" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-neon" data-i18n="nav-features">المميزات</a>
+            <a href="#schedule" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-neon" data-i18n="nav-schedule">الجدول الأسبوعي</a>
+            <a href="#plans" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-neon" data-i18n="nav-plans">الباقات والاشتراكات</a>
+            <a href="#location" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-neon" data-i18n="nav-location">الموقع والتواصل</a>
+            <div class="pt-2">
+                <a href="#plans" class="mobile-nav-link block w-full text-center bg-brand-neon text-black font-bold py-3 rounded-xl shadow-neon-glow" data-i18n="cta-join">
+                    انضم إلينا الآن
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-36 pb-24 md:pt-48 md:pb-32 hero-bg-overlay overflow-hidden min-h-screen flex items-center justify-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 flex flex-col items-center text-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-card/80 border border-brand-neon/30 text-brand-neon text-sm font-semibold tracking-wide shadow-lg mb-6">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-neon animate-pulse"></span>
+                <span data-i18n="hero-badge">أفضل صالة رياضية متكاملة في الرياض</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-relaxed tracking-tight mb-6">
+                <span data-i18n="hero-title-1">ابدأ رحلتك نحو</span> <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-l from-brand-neon via-lime-300 to-brand-cyan text-glow" data-i18n="hero-title-2">
+                    اللياقة والقوة المطلقة
+                </span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-light leading-relaxed mb-8" data-i18n="hero-desc">
+                نحن لا نوفر لك الأجهزة فقط، بل نمنحك بيئة حماسية، ومدربين محترفين، وبرامج تدريبية وتغذوية مخصصة لمساعدتك في تحقيق أهدافك البدنية بأعلى كفاءة.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full">
+                <a href="#plans" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-neon text-black font-extrabold text-lg shadow-neon-glow hover:bg-white transition-all transform hover:-translate-y-1 text-center" data-i18n="hero-btn-explore">
+                    استكشف الباقات وابدأ اليوم
+                </a>
+                <a href="#schedule" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card hover:bg-brand-cardHover border border-slate-700 text-white font-bold text-lg transition-all text-center flex items-center justify-center gap-2 group">
+                    <i class="fa-regular fa-calendar-days text-brand-cyan group-hover:scale-110 transition-transform"></i>
+                    <span data-i18n="hero-btn-schedule">جدول الكلاسات</span>
+                </a>
+            </div>
+
+            <!-- Stats Counter Ticker -->
+            <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-6 sm:gap-12 max-w-lg w-full justify-center">
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white font-sans">+<span class="counter" data-target="1200">0</span></div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1" data-i18n="stat-1">مشترك نشط</div>
+                </div>
+                <div class="text-center border-r border-l border-slate-800 px-4">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-brand-neon font-sans">+<span class="counter" data-target="25">0</span></div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1" data-i18n="stat-2">مدرب محترف</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-brand-cyan font-sans">+<span class="counter" data-target="50">0</span></div>
+                    <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1" data-i18n="stat-3">كلاس أسبوعي</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-brand-dark relative border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-brand-neon font-extrabold text-sm tracking-widest uppercase" data-i18n="features-tag">لماذا تختار فيتنس زون؟</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white leading-snug" data-i18n="features-title">تجربة رياضية استثنائية مصممة للتميز</p>
+                <p class="text-slate-400 text-base leading-relaxed" data-i18n="features-desc">حرصنا على توفير أفضل الإمكانيات والتقنيات لتستمتع بتمارينك وتحقق نتائج ملحوظة في أسرع وقت.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-brand-card p-8 rounded-3xl border border-slate-800 hover:border-brand-neon/50 transition-all duration-300 hover:-translate-y-2 group flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-neon/10 text-brand-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-neon group-hover:text-black transition-colors">
+                        <i class="fa-solid fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="feat-1-title">أحدث الأجهزة العالمية</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="feat-1-desc">معدات حديثة ومتطورة من أفضل الماركات العالمية لتمارين الحديد والتمارين الهوائية والكارديو.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-3xl border border-slate-800 hover:border-brand-neon/50 transition-all duration-300 hover:-translate-y-2 group flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-cyan group-hover:text-black transition-colors">
+                        <i class="fa-solid fa-user-ninja"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="feat-2-title">مدربون معتمدون دولياً</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="feat-2-desc">نخبة من أفضل المدربين الشخصيين لمساعدتك في توجيه التمارين وتصميم خطط تدريب مخصصة لك.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-3xl border border-slate-800 hover:border-brand-neon/50 transition-all duration-300 hover:-translate-y-2 group flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-neon/10 text-brand-neon flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-neon group-hover:text-black transition-colors">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="feat-3-title">خدمات الاسترخاء والسبا</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="feat-3-desc">غرف سونا، بخار، وجاكوزي متطورة للاستشفاء العضلي والاسترخاء التام بعد التمارين الشاقة.</p>
+                </div>
+
+                <div class="bg-brand-card p-8 rounded-3xl border border-slate-800 hover:border-brand-neon/50 transition-all duration-300 hover:-translate-y-2 group flex flex-col items-center text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-cyan group-hover:text-black transition-colors">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3" data-i18n="feat-4-title">بار تغذية ومكملات</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed" data-i18n="feat-4-desc">مشروبات بروتين طازجة، عصائر صحية ومكملات غذائية معتمدة لتغذية جسدك بالطاقة المطلوبة.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Class Schedule Section -->
+    <section id="schedule" class="py-24 bg-[#0E1420] relative border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col items-center text-center mb-12 gap-4">
+                <h2 class="text-brand-neon font-extrabold text-sm tracking-widest uppercase" data-i18n="sched-tag">جدول الحصص والتمارين</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white leading-snug" data-i18n="sched-title">اختر كلاسك المفضل وشاركنا التحدي</p>
+                <p class="text-slate-400 max-w-md text-sm leading-relaxed" data-i18n="sched-desc">
+                    جدول متنوع يغطي كافة مستويات اللياقة البدنية تحت إشراف أفضل المدربين.
+                </p>
+            </div>
+
+            <!-- Days / Category Tabs Filter -->
+            <div class="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none border-b border-slate-800" id="schedule-tabs">
+                <button data-day="all" class="schedule-tab active px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-brand-neon text-black shadow-neon-glow" data-i18n="day-all">جميع الكلاسات</button>
+                <button data-day="sat" class="schedule-tab px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-brand-card text-slate-300 hover:bg-slate-800" data-i18n="day-sat">السبت</button>
+                <button data-day="sun" class="schedule-tab px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-brand-card text-slate-300 hover:bg-slate-800" data-i18n="day-sun">الأحد</button>
+                <button data-day="mon" class="schedule-tab px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-brand-card text-slate-300 hover:bg-slate-800" data-i18n="day-mon">الإثنين</button>
+                <button data-day="tue" class="schedule-tab px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-brand-card text-slate-300 hover:bg-slate-800" data-i18n="day-tue">الثلاثاء</button>
+                <button data-day="wed" class="schedule-tab px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-brand-card text-slate-300 hover:bg-slate-800" data-i18n="day-wed">الأربعاء</button>
+                <button data-day="thu" class="schedule-tab px-6 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-brand-card text-slate-300 hover:bg-slate-800" data-i18n="day-thu">الخميس</button>
+            </div>
+
+            <!-- Schedule Grid Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-start" id="schedule-cards">
+                
+                <!-- Card 1 -->
+                <div class="class-card bg-brand-card rounded-2xl p-6 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between" data-days="sat,mon,wed">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold" data-i18n="c1-tag">شدة عالية 🔥</span>
+                            <span class="text-xs text-slate-400"><i class="fa-regular fa-clock ml-1"></i> <span data-i18n="c1-time">60 دقيقة</span></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="c1-name">CrossFit & HIIT (كروس فيت)</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed" data-i18n="c1-desc">تمارين حرق دهون مكثفة ورفع الكفاءة البدنية.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-tie text-brand-neon"></i>
+                            <span data-i18n="c1-coach">المدرب: كابتن أحمد</span>
+                        </div>
+                        <div class="font-bold text-brand-neon bg-brand-neon/10 px-2.5 py-1 rounded-lg">05:00 PM</div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="class-card bg-brand-card rounded-2xl p-6 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between" data-days="sun,tue,thu">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-brand-cyan border border-brand-cyan/20 text-xs font-bold" data-i18n="c2-tag">شدة متوسطة ⚡</span>
+                            <span class="text-xs text-slate-400"><i class="fa-regular fa-clock ml-1"></i> <span data-i18n="c2-time">45 دقيقة</span></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="c2-name">Kickboxing & Defense (كيك بوكسينغ)</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed" data-i18n="c2-desc">تعلم مهارات الدفاع عن النفس وحرق السعرات.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-tie text-brand-cyan"></i>
+                            <span data-i18n="c2-coach">المدرب: كابتن طارق</span>
+                        </div>
+                        <div class="font-bold text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded-lg">06:30 PM</div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="class-card bg-brand-card rounded-2xl p-6 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between" data-days="sat,sun,mon,tue,wed,thu">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-bold" data-i18n="c3-tag">جميع المستويات 🧘</span>
+                            <span class="text-xs text-slate-400"><i class="fa-regular fa-clock ml-1"></i> <span data-i18n="c3-time">50 دقيقة</span></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="c3-name">Yoga & Stretch (يوجا وإطالات)</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed" data-i18n="c3-desc">تحسين المرونة والتنفس والتخلص من التوتر العضلي.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-tie text-emerald-400"></i>
+                            <span data-i18n="c3-coach">المدربة: كابتن سارة</span>
+                        </div>
+                        <div class="font-bold text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-lg">08:00 PM</div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="class-card bg-brand-card rounded-2xl p-6 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between" data-days="sat,tue">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-bold" data-i18n="c1-tag">شدة عالية 🔥</span>
+                            <span class="text-xs text-slate-400"><i class="fa-regular fa-clock ml-1"></i> <span data-i18n="c3-time">50 دقيقة</span></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="c4-name">Spinning & Cycling (سبيينج)</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed" data-i18n="c4-desc">تمارين دراجات جماعية بإيقاعات موسيقية حماسية.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-tie text-brand-neon"></i>
+                            <span data-i18n="c4-coach">المدرب: كابتن ماجد</span>
+                        </div>
+                        <div class="font-bold text-brand-neon bg-brand-neon/10 px-2.5 py-1 rounded-lg">07:00 PM</div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="class-card bg-brand-card rounded-2xl p-6 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between" data-days="mon,thu">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 text-xs font-bold" data-i18n="c5-tag">قوة وتحمل 💪</span>
+                            <span class="text-xs text-slate-400"><i class="fa-regular fa-clock ml-1"></i> <span data-i18n="c1-time">60 دقيقة</span></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="c5-name">Body Building (حديد وضخامة)</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed" data-i18n="c5-desc">التكنيك الصحيح لرفع الأوزان وبناء الكتل العضلية.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-tie text-purple-400"></i>
+                            <span data-i18n="c5-coach">المدرب: كابتن فهد</span>
+                        </div>
+                        <div class="font-bold text-purple-400 bg-purple-400/10 px-2.5 py-1 rounded-lg">09:00 PM</div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="class-card bg-brand-card rounded-2xl p-6 border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between" data-days="sun,wed">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-brand-cyan border border-brand-cyan/20 text-xs font-bold" data-i18n="c2-tag">شدة متوسطة ⚡</span>
+                            <span class="text-xs text-slate-400"><i class="fa-regular fa-clock ml-1"></i> <span data-i18n="c2-time">45 دقيقة</span></span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2" data-i18n="c6-name">Core & Abs (تمارين البطن والوسط)</h3>
+                        <p class="text-slate-400 text-sm mb-4 leading-relaxed" data-i18n="c6-desc">تركيز مكثف على تقوية العضلات الأساسية وشق البطن.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-300">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-user-tie text-brand-cyan"></i>
+                            <span data-i18n="c6-coach">المدرب: كابتن خالد</span>
+                        </div>
+                        <div class="font-bold text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded-lg">04:30 PM</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Membership Plans Section -->
+    <section id="plans" class="py-24 bg-brand-dark relative border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-brand-neon font-extrabold text-sm tracking-widest uppercase" data-i18n="plans-tag">خطط الاشتراكات</h2>
+                <p class="text-3xl sm:text-4xl font-black text-white leading-snug" data-i18n="plans-title">اختر الباقة المناسبة لأهدافك</p>
+                <p class="text-slate-400 text-base leading-relaxed" data-i18n="plans-desc">أسعار شفافة وبدون رسوم خفية. احصل على خصم إضافي عند الاشتراك السنوي!</p>
+
+                <!-- Billing Toggle Button -->
+                <div class="inline-flex items-center justify-center bg-brand-card p-1.5 rounded-2xl border border-slate-800 mt-6">
+                    <button id="btn-monthly" class="px-6 py-2.5 rounded-xl font-bold text-sm transition-all bg-brand-neon text-black" data-i18n="billing-monthly">
+                        اشتراك شهري
+                    </button>
+                    <button id="btn-yearly" class="px-6 py-2.5 rounded-xl font-bold text-sm text-slate-400 hover:text-white transition-all flex items-center gap-2">
+                        <span data-i18n="billing-yearly">اشتراك سنوي</span>
+                        <span class="bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold" data-i18n="billing-discount">وفّر 25%</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch text-start">
+                
+                <!-- Plan 1 -->
+                <div class="bg-brand-card rounded-3xl p-8 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition-all">
+                    <div>
+                        <div class="text-lg font-bold text-slate-300 mb-2" data-i18n="plan-1-name">باقة البداية (Basic)</div>
+                        <p class="text-slate-400 text-xs mb-6" data-i18n="plan-1-desc">مناسبة للمبتدئين للتجربة والاستكشاف</p>
+                        
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-black text-white plan-price" data-monthly="299" data-yearly="2400">299</span>
+                            <span class="text-sm font-bold text-slate-400" data-i18n="currency">ر.س</span>
+                            <span class="text-xs text-slate-500 plan-period" data-i18n="period-monthly">/ شهرياً</span>
+                        </div>
+
+                        <ul class="space-y-4 mb-8 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-neon shrink-0"></i><span data-i18n="p1-f1">دخول النادي طوال اليوم</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-neon shrink-0"></i><span data-i18n="p1-f2">استخدام أجهزة الحديد والكارديو</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-neon shrink-0"></i><span data-i18n="p1-f3">خزانة حفظ أمتعة يومية</span></li>
+                            <li class="flex items-center gap-3 text-slate-500 line-through"><i class="fa-solid fa-xmark text-slate-600 shrink-0"></i><span data-i18n="p1-f4">حضور الكلاسات الجماعية</span></li>
+                            <li class="flex items-center gap-3 text-slate-500 line-through"><i class="fa-solid fa-xmark text-slate-600 shrink-0"></i><span data-i18n="p1-f5">جلسات مدرب شخصي</span></li>
+                        </ul>
+                    </div>
+
+                    <button class="subscribe-btn w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold transition-all text-center" data-plan="باقة البداية" data-i18n="plan-btn">
+                        اشترك الآن
+                    </button>
+                </div>
+
+                <!-- Plan 2 -->
+                <div class="bg-gradient-to-b from-brand-card to-[#1B273D] rounded-3xl p-8 border-2 border-brand-neon relative flex flex-col justify-between shadow-neon-glow transform lg:-translate-y-4">
+                    <div class="absolute -top-4 right-1/2 translate-x-1/2 bg-brand-neon text-black font-extrabold text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md whitespace-nowrap" data-i18n="plan-popular">
+                        الأكثر طلباً ⭐
+                    </div>
+
+                    <div>
+                        <div class="text-lg font-bold text-brand-neon mb-2" data-i18n="plan-2-name">باقة المحترفين (Pro)</div>
+                        <p class="text-slate-300 text-xs mb-6" data-i18n="plan-2-desc">الباقة الشاملة لتحقيق أفضل النتائج البدنية</p>
+                        
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-5xl font-black text-white plan-price" data-monthly="599" data-yearly="4800">599</span>
+                            <span class="text-sm font-bold text-slate-400" data-i18n="currency">ر.س</span>
+                            <span class="text-xs text-slate-400 plan-period" data-i18n="period-monthly">/ شهرياً</span>
+                        </div>
+
+                        <ul class="space-y-4 mb-8 text-sm text-slate-200">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-neon shrink-0"></i><span data-i18n="p2-f1">دخول غير محدود لجميع الفروع</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-neon shrink-0"></i><span data-i18n="p2-f2">حضور كافة الكلاسات الجماعية</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-neon shrink-0"></i><span data-i18n="p2-f3">جلسة قياس InBody شهرياً</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-neon shrink-0"></i><span data-i18n="p2-f4">دخول منطقة السونا والبخار</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-neon shrink-0"></i><span data-i18n="p2-f5">2 جلسة مع مدرب شخصي شهرياً</span></li>
+                        </ul>
+                    </div>
+
+                    <button class="subscribe-btn w-full py-4 rounded-xl bg-brand-neon text-black font-black text-lg hover:bg-white transition-all text-center shadow-lg" data-plan="باقة المحترفين (Pro)" data-i18n="plan-btn-pro">
+                        اشترك الآن واحصُل على العرض
+                    </button>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="bg-brand-card rounded-3xl p-8 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition-all">
+                    <div>
+                        <div class="text-lg font-bold text-brand-cyan mb-2" data-i18n="plan-3-name">باقة النخبة (VIP)</div>
+                        <p class="text-slate-400 text-xs mb-6" data-i18n="plan-3-desc">تجربة فاخرة مع متابعة خاصة ودقيقة جداً</p>
+                        
+                        <div class="flex items-baseline gap-1 mb-6">
+                            <span class="text-4xl font-black text-white plan-price" data-monthly="999" data-yearly="8900">999</span>
+                            <span class="text-sm font-bold text-slate-400" data-i18n="currency">ر.س</span>
+                            <span class="text-xs text-slate-500 plan-period" data-i18n="period-monthly">/ شهرياً</span>
+                        </div>
+
+                        <ul class="space-y-4 mb-8 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-cyan shrink-0"></i><span data-i18n="p3-f1">كل مميزات باقة المحترفين</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-cyan shrink-0"></i><span data-i18n="p3-f2">مدرب شخصي خاص (8 جلسات)</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-cyan shrink-0"></i><span data-i18n="p3-f3">خطة تغذية مخصصة وتحديث أسبوعي</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-cyan shrink-0"></i><span data-i18n="p3-f4">دخول صالة الـ VIP والضيوف</span></li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-brand-cyan shrink-0"></i><span data-i18n="p3-f5">مشروب بروتين مجاني يومياً</span></li>
+                        </ul>
+                    </div>
+
+                    <button class="subscribe-btn w-full py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold transition-all text-center" data-plan="باقة النخبة (VIP)" data-i18n="plan-btn">
+                        اشترك الآن
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="location" class="py-24 bg-[#0E1420] relative border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Contact Info & Working Hours -->
+                <div class="lg:col-span-5 space-y-8 text-start">
+                    <div>
+                        <h2 class="text-brand-neon font-extrabold text-sm tracking-widest uppercase" data-i18n="loc-tag">الموقع وساعات العمل</h2>
+                        <p class="text-3xl font-black text-white mt-2 leading-snug" data-i18n="loc-title">زورنا في فرعنا الرئيسي</p>
+                        <p class="text-slate-400 text-sm mt-3 leading-relaxed" data-i18n="loc-desc">يسعدنا استقبالك في أي وقت لعمل جولة تعريفية مجانية داخل الصالة الرياضية.</p>
+                    </div>
+
+                    <div class="bg-brand-card p-6 rounded-2xl border border-slate-800 space-y-4 w-full">
+                        <div class="flex items-center gap-3 text-brand-neon font-bold text-base pb-3 border-b border-slate-800">
+                            <i class="fa-regular fa-clock text-xl"></i>
+                            <span data-i18n="hours-title">أوقات العمل الرسمية</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-300" data-i18n="hours-sat-thu">من السبت إلى الخميس:</span>
+                            <span class="text-white font-bold">06:00 AM - 12:00 AM</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-slate-300" data-i18n="hours-fri">يوم الجمعة:</span>
+                            <span class="text-white font-bold">02:00 PM - 10:00 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 w-full">
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-card/50 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-brand-neon/10 text-brand-neon flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm" data-i18n="address-title">العنوان</h4>
+                                <p class="text-slate-400 text-xs mt-1 leading-relaxed" data-i18n="address-desc">طريق الملك فهد، حي الصحافة، الرياض، المملكة العربية السعودية</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-brand-card/50 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 text-brand-cyan flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-sm" data-i18n="phone-title">الهاتف والواتساب</h4>
+                                <p class="text-slate-400 text-xs mt-1" dir="ltr">+966 50 123 4567 / +966 11 987 6543</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Form & Map -->
+                <div class="lg:col-span-7 bg-brand-card rounded-3xl p-8 border border-slate-800 space-y-6 text-start">
+                    <h3 class="text-2xl font-bold text-white" data-i18n="form-title">تواصل معنا أو احجز زيارة تجريبية</h3>
+
+                    <form id="contact-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1" data-i18n="form-name">الاسم الكامل</label>
+                                <input type="text" required placeholder="محمد علي" class="w-full bg-brand-dark border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-neon transition-colors text-start">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1" data-i18n="form-phone">رقم الجوال</label>
+                                <input type="tel" required placeholder="05xxxxxxxx" class="w-full bg-brand-dark border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-neon transition-colors text-start" dir="ltr">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1" data-i18n="form-service">الاستفسار / الخدمة المطلوبة</label>
+                            <select class="w-full bg-brand-dark border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-neon transition-colors text-start">
+                                <option data-i18n="opt-1">حجز زيارة استكشافية مجانية</option>
+                                <option data-i18n="opt-2">استفسار عن الاشتراكات والباقات</option>
+                                <option data-i18n="opt-3">طلب تدريب شخصي</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1" data-i18n="form-msg">رسالتك (اختياري)</label>
+                            <textarea rows="3" placeholder="..." class="w-full bg-brand-dark border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-neon transition-colors text-start"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-neon text-black font-extrabold hover:bg-white transition-all shadow-neon-glow" data-i18n="form-submit">
+                            إرسال الطلب الآن
+                        </button>
+                    </form>
+
+                    <div class="relative w-full h-48 rounded-2xl overflow-hidden border border-slate-700 bg-slate-900 flex items-center justify-center group cursor-pointer">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-500" alt="Map">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                        <div class="relative z-10 text-center space-y-2 p-4">
+                            <div class="w-12 h-12 rounded-full bg-brand-neon text-black flex items-center justify-center mx-auto text-xl shadow-neon-glow animate-bounce">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <span class="text-white font-bold text-sm block" data-i18n="map-title">اضغط لفتح موقع الفرع على خرائط جوجل</span>
+                            <span class="text-brand-neon text-xs font-semibold" data-i18n="map-sub">طريق الملك فهد - الرياض</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-brand-dark border-t border-slate-800 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12 text-start">
+                
+                <div class="space-y-4 md:col-span-1">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-brand-neon text-black font-black flex items-center justify-center text-xl shadow-neon-glow">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <span class="text-2xl font-extrabold text-white" data-i18n="logo-name">فيتنس<span class="text-brand-neon">زون</span></span>
+                    </a>
+                    <p class="text-xs text-slate-400 leading-relaxed" data-i18n="footer-desc">
+                        صالتك الرياضية المتكاملة للوصول إلى أفضل نسخة من جسمك وصحتك. بيئة محفزة وأحدث التجهيزات.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4" data-i18n="f-col1-title">روابط سريعة</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#home" class="hover:text-brand-neon transition-colors" data-i18n="nav-home">الرئيسية</a></li>
+                        <li><a href="#features" class="hover:text-brand-neon transition-colors" data-i18n="nav-features">المميزات والخدمات</a></li>
+                        <li><a href="#schedule" class="hover:text-brand-neon transition-colors" data-i18n="nav-schedule">جدول التمارين</a></li>
+                        <li><a href="#plans" class="hover:text-brand-neon transition-colors" data-i18n="nav-plans">الباقات والأسعار</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4" data-i18n="f-col2-title">البرامج الرياضية</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#schedule" class="hover:text-brand-neon transition-colors">CrossFit & HIIT</a></li>
+                        <li><a href="#schedule" class="hover:text-brand-neon transition-colors">Body Building</a></li>
+                        <li><a href="#schedule" class="hover:text-brand-neon transition-colors">Kickboxing</a></li>
+                        <li><a href="#schedule" class="hover:text-brand-neon transition-colors">Yoga & Stretch</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm mb-4" data-i18n="f-col3-title">تابعنا على شبكات التواصل</h4>
+                    <div class="flex items-center gap-3 mb-4">
+                        <a href="#" class="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center text-slate-300 hover:text-brand-neon hover:bg-slate-800 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center text-slate-300 hover:text-brand-neon hover:bg-slate-800 transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center text-slate-300 hover:text-brand-neon hover:bg-slate-800 transition-colors"><i class="fa-brands fa-snapchat"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center text-slate-300 hover:text-brand-neon hover:bg-slate-800 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                        <!-- رابط لينكد إن الخاص بك -->
+                        <a href="https://www.linkedin.com/in/shahad-al-anazi🌸-a457832b7" target="_blank" title="Shahad Al-Anazi LinkedIn" class="w-10 h-10 rounded-xl bg-brand-card flex items-center justify-center text-slate-300 hover:text-brand-neon hover:bg-slate-800 transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="text-[11px] text-slate-500" data-i18n="f-col3-desc">احصل على نصائح لياقة يومية وعروض حصريّة عبر متابعتنا.</p>
+                </div>
+
+            </div>
+
+            <!-- Copyright & Ownership Footer Bar -->
+            <div class="pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p data-i18n="copyright">جميع الحقوق محفوظة © 2026 لصالة <strong>فيتنس زون (Fitness Zone)</strong></p>
+                
+                <!-- Shahad Al-Anazi Ownership Badge -->
+                <div class="text-slate-400 font-medium">
+                    Designed & Developed by <a href="https://www.linkedin.com/in/shahad-al-anazi🌸-a457832b7" target="_blank" class="text-brand-neon hover:underline font-bold">Shahad Al-Anazi 🌸</a>
+                </div>
+
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-400" data-i18n="terms">الشروط والأحكام</a>
+                    <a href="#" class="hover:text-slate-400" data-i18n="privacy">سياسة الخصوصية</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Dialog -->
+    <div id="sub-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-brand-card rounded-3xl p-8 max-w-md w-full border border-slate-700 shadow-2xl relative transform scale-95 transition-transform duration-300 text-start" id="modal-box">
+            <button id="close-modal" class="absolute top-4 left-4 text-slate-400 hover:text-white p-2 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="space-y-4">
+                <div class="w-16 h-16 rounded-full bg-brand-neon/20 text-brand-neon flex items-center justify-center text-3xl mx-auto shadow-neon-glow">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-black text-white text-center" data-i18n="modal-title">تأكيد طلب الاشتراك</h3>
+                <p class="text-slate-300 text-sm text-center">
+                    <span data-i18n="modal-desc">لقد اخترت:</span> <span id="selected-plan-name" class="font-bold text-brand-neon">باقة المحترفين</span>
+                </p>
+                <form id="modal-sub-form" class="space-y-4 pt-2">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1" data-i18n="form-name">الاسم الكامل</label>
+                        <input type="text" required placeholder="Name" class="w-full bg-brand-dark border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-neon text-start">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-300 mb-1" data-i18n="form-phone">رقم الهاتف</label>
+                        <input type="tel" required placeholder="05xxxxxxxx" class="w-full bg-brand-dark border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-neon text-start" dir="ltr">
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded-xl bg-brand-neon text-black font-extrabold text-sm hover:bg-white transition-all shadow-neon-glow" data-i18n="modal-btn">
+                        تأكيد وإرسال لخدمة العملاء
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 bg-brand-neon text-black px-6 py-3.5 rounded-2xl font-bold shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-info text-xl"></i>
+        <span id="toast-message">تم إرسال طلبك بنجاح!</span>
+    </div>
+
+    <!-- Translation Dictionary & Scripts -->
+    <script>
+        const translations = {
+            ar: {
+                "page-title": "فيتنس زون | Fitness Zone - صالة رياضية متكاملة",
+                "logo-name": "فيتنس<span class=\"text-brand-neon\">زون</span>",
+                "logo-sub": "FITNESS ZONE GYM",
+                "nav-home": "الرئيسية",
+                "nav-features": "المميزات",
+                "nav-schedule": "الجدول الأسبوعي",
+                "nav-plans": "الباقات والاشتراكات",
+                "nav-location": "الموقع والتواصل",
+                "cta-join": "انضم إلينا الآن",
+                "hero-badge": "أفضل صالة رياضية متكاملة في الرياض",
+                "hero-title-1": "ابدأ رحلتك نحو",
+                "hero-title-2": "اللياقة والقوة المطلقة",
+                "hero-desc": "نحن لا نوفر لك الأجهزة فقط، بل نمنحك بيئة حماسية، ومدربين محترفين، وبرامج تدريبية وتغذوية مخصصة لمساعدتك في تحقيق أهدافك البدنية بأعلى كفاءة.",
+                "hero-btn-explore": "استكشف الباقات وابدأ اليوم",
+                "hero-btn-schedule": "جدول الكلاسات",
+                "stat-1": "مشترك نشط",
+                "stat-2": "مدرب محترف",
+                "stat-3": "كلاس أسبوعي",
+                "features-tag": "لماذا تختار فيتنس زون؟",
+                "features-title": "تجربة رياضية استثنائية مصممة للتميز",
+                "features-desc": "حرصنا على توفير أفضل الإمكانيات والتقنيات لتستمتع بتمارينك وتحقق نتائج ملحوظة في أسرع وقت.",
+                "feat-1-title": "أحدث الأجهزة العالمية",
+                "feat-1-desc": "معدات حديثة ومتطورة من أفضل الماركات العالمية لتمارين الحديد والتمارين الهوائية والكارديو.",
+                "feat-2-title": "مدربون معتمدون دولياً",
+                "feat-2-desc": "نخبة من أفضل المدربين الشخصيين لمساعدتك في توجيه التمارين وتصميم خطط تدريب مخصصة لك.",
+                "feat-3-title": "خدمات الاسترخاء والسبا",
+                "feat-3-desc": "غرف سونا، بخار، وجاكوزي متطورة للاستشفاء العضلي والاسترخاء التام بعد التمارين الشاقة.",
+                "feat-4-title": "بار تغذية ومكملات",
+                "feat-4-desc": "مشروبات بروتين طازجة، عصائر صحية ومكملات غذائية معتمدة لتغذية جسدك بالطاقة المطلوبة.",
+                "sched-tag": "جدول الحصص والتمارين",
+                "sched-title": "اختر كلاسك المفضل وشاركنا التحدي",
+                "sched-desc": "جدول متنوع يغطي كافة مستويات اللياقة البدنية تحت إشراف أفضل المدربين.",
+                "day-all": "جميع الكلاسات",
+                "day-sat": "السبت",
+                "day-sun": "الأحد",
+                "day-mon": "الإثنين",
+                "day-tue": "الثلاثاء",
+                "day-wed": "الأربعاء",
+                "day-thu": "الخميس",
+                "c1-tag": "شدة عالية 🔥",
+                "c1-time": "60 دقيقة",
+                "c1-name": "CrossFit & HIIT (كروس فيت)",
+                "c1-desc": "تمارين حرق دهون مكثفة ورفع الكفاءة البدنية.",
+                "c1-coach": "المدرب: كابتن أحمد",
+                "c2-tag": "شدة متوسطة ⚡",
+                "c2-time": "45 دقيقة",
+                "c2-name": "Kickboxing & Defense (كيك بوكسينغ)",
+                "c2-desc": "تعلم مهارات الدفاع عن النفس وحرق السعرات.",
+                "c2-coach": "المدرب: كابتن طارق",
+                "c3-tag": "جميع المستويات 🧘",
+                "c3-time": "50 دقيقة",
+                "c3-name": "Yoga & Stretch (يوجا وإطالات)",
+                "c3-desc": "تحسين المرونة والتنفس والتخلص من التوتر العضلي.",
+                "c3-coach": "المدربة: كابتن سارة",
+                "c4-name": "Spinning & Cycling (سبيينج)",
+                "c4-desc": "تمارين دراجات جماعية بإيقاعات موسيقية حماسية.",
+                "c4-coach": "المدرب: كابتن ماجد",
+                "c5-tag": "قوة وتحمل 💪",
+                "c5-name": "Body Building (حديد وضخامة)",
+                "c5-desc": "التكنيك الصحيح لرفع الأوزان وبناء الكتل العضلية.",
+                "c5-coach": "المدرب: كابتن فهد",
+                "c6-name": "Core & Abs (تمارين البطن والوسط)",
+                "c6-desc": "تركيز مكثف على تقوية العضلات الأساسية وشق البطن.",
+                "c6-coach": "المدرب: كابتن خالد",
+                "plans-tag": "خطط الاشتراكات",
+                "plans-title": "اختر الباقة المناسبة لأهدافك",
+                "plans-desc": "أسعار شفافة وبدون رسوم خفية. احصل على خصم إضافي عند الاشتراك السنوي!",
+                "billing-monthly": "اشتراك شهري",
+                "billing-yearly": "اشتراك سنوي",
+                "billing-discount": "وفّر 25%",
+                "plan-1-name": "باقة البداية (Basic)",
+                "plan-1-desc": "مناسبة للمبتدئين للتجربة والاستكشاف",
+                "currency": "ر.س",
+                "period-monthly": "/ شهرياً",
+                "period-yearly": "/ سنوي",
+                "p1-f1": "دخول النادي طوال اليوم",
+                "p1-f2": "استخدام أجهزة الحديد والكارديو",
+                "p1-f3": "خزانة حفظ أمتعة يومية",
+                "p1-f4": "حضور الكلاسات الجماعية",
+                "p1-f5": "جلسات مدرب شخصي",
+                "plan-btn": "اشترك الآن",
+                "plan-popular": "الأكثر طلباً ⭐",
+                "plan-2-name": "باقة المحترفين (Pro)",
+                "plan-2-desc": "الباقة الشاملة لتحقيق أفضل النتائج البدنية",
+                "p2-f1": "دخول غير محدود لجميع الفروع",
+                "p2-f2": "حضور كافة الكلاسات الجماعية",
+                "p2-f3": "جلسة قياس InBody شهرياً",
+                "p2-f4": "دخول منطقة السونا والبخار",
+                "p2-f5": "2 جلسة مع مدرب شخصي شهرياً",
+                "plan-btn-pro": "اشترك الآن واحصُل على العرض",
+                "plan-3-name": "باقة النخبة (VIP)",
+                "plan-3-desc": "تجربة فاخرة مع متابعة خاصة ودقيقة جداً",
+                "p3-f1": "كل مميزات باقة المحترفين",
+                "p3-f2": "مدرب شخصي خاص (8 جلسات)",
+                "p3-f3": "خطة تغذية مخصصة وتحديث أسبوعي",
+                "p3-f4": "دخول صالة الـ VIP والضيوف",
+                "p3-f5": "مشروب بروتين مجاني يومياً",
+                "loc-tag": "الموقع وساعات العمل",
+                "loc-title": "زورنا في فرعنا الرئيسي",
+                "loc-desc": "يسعدنا استقبالك في أي وقت لعمل جولة تعريفية مجانية داخل الصالة الرياضية.",
+                "hours-title": "أوقات العمل الرسمية",
+                "hours-sat-thu": "من السبت إلى الخميس:",
+                "hours-fri": "يوم الجمعة:",
+                "address-title": "العنوان",
+                "address-desc": "طريق الملك فهد، حي الصحافة، الرياض، المملكة العربية السعودية",
+                "phone-title": "الهاتف والواتساب",
+                "form-title": "تواصل معنا أو احجز زيارة تجريبية",
+                "form-name": "الاسم الكامل",
+                "form-phone": "رقم الجوال",
+                "form-service": "الاستفسار / الخدمة المطلوبة",
+                "opt-1": "حجز زيارة استكشافية مجانية",
+                "opt-2": "استفسار عن الاشتراكات والباقات",
+                "opt-3": "طلب تدريب شخصي",
+                "form-msg": "رسالتك (اختياري)",
+                "form-submit": "إرسال الطلب الآن",
+                "map-title": "اضغط لفتح موقع الفرع على خرائط جوجل",
+                "map-sub": "طريق الملك فهد - الرياض",
+                "f-col1-title": "روابط سريعة",
+                "f-col2-title": "البرامج الرياضية",
+                "f-col3-title": "تابعنا على شبكات التواصل",
+                "f-col3-desc": "احصل على نصائح لياقة يومية وعروض حصريّة عبر متابعتنا.",
+                "copyright": "جميع الحقوق محفوظة © 2026 لصالة <strong>فيتنس زون (Fitness Zone)</strong>",
+                "footer-desc": "صالتك الرياضية المتكاملة للوصول إلى أفضل نسخة من جسمك وصحتك. بيئة محفزة وأحدث التجهيزات.",
+                "terms": "الشروط والأحكام",
+                "privacy": "سياسة الخصوصية",
+                "modal-title": "تأكيد طلب الاشتراك",
+                "modal-desc": "لقد اخترت:",
+                "modal-btn": "تأكيد وإرسال لخدمة العملاء",
+                "toast-success": "تم إرسال طلبك بنجاح!",
+                "toast-contact": "تم استلام رسالتك بنجاح وسنقوم بالرد قريباً!",
+                "toast-sales": "شكراً لتواصلك! سيتواصل معك فريق المبيعات فوراً."
+            },
+            en: {
+                "page-title": "Fitness Zone | Complete Gym & Wellness Center",
+                "logo-name": "Fitness<span class=\"text-brand-neon\">Zone</span>",
+                "logo-sub": "FITNESS ZONE GYM",
+                "nav-home": "Home",
+                "nav-features": "Features",
+                "nav-schedule": "Schedule",
+                "nav-plans": "Memberships",
+                "nav-location": "Location & Contact",
+                "cta-join": "Join Us Now",
+                "hero-badge": "The Ultimate Gym Experience in Riyadh",
+                "hero-title-1": "Start Your Journey To",
+                "hero-title-2": "Absolute Fitness & Strength",
+                "hero-desc": "We don't just provide equipment; we give you an energetic environment, pro trainers, and custom workout & nutrition plans to reach your peak performance.",
+                "hero-btn-explore": "Explore Plans & Start Today",
+                "hero-btn-schedule": "Class Schedule",
+                "stat-1": "Active Members",
+                "stat-2": "Pro Trainers",
+                "stat-3": "Weekly Classes",
+                "features-tag": "Why Choose Fitness Zone?",
+                "features-title": "Exceptional Fitness Experience Built For Excellence",
+                "features-desc": "We provide the best facilities and technologies so you can enjoy your workouts and achieve noticeable results fast.",
+                "feat-1-title": "Latest Global Equipment",
+                "feat-1-desc": "Modern state-of-the-art equipment from top global brands for strength, cardio, and functional training.",
+                "feat-2-title": "Internationally Certified Trainers",
+                "feat-2-desc": "An elite group of personal trainers to guide your workouts and design tailored programs.",
+                "feat-3-title": "Relaxation & Spa Services",
+                "feat-3-desc": "Advanced sauna, steam, and jacuzzi rooms for muscle recovery and complete relaxation after intense workouts.",
+                "feat-4-title": "Nutrition & Supplement Bar",
+                "feat-4-desc": "Fresh protein shakes, healthy juices, and certified supplements to fuel your body with energy.",
+                "sched-tag": "Classes & Exercise Schedule",
+                "sched-title": "Choose Your Favorite Class & Join The Challenge",
+                "sched-desc": "A diverse schedule covering all fitness levels under the supervision of top coaches.",
+                "day-all": "All Classes",
+                "day-sat": "Saturday",
+                "day-sun": "Sunday",
+                "day-mon": "Monday",
+                "day-tue": "Tuesday",
+                "day-wed": "Wednesday",
+                "day-thu": "Thursday",
+                "c1-tag": "High Intensity 🔥",
+                "c1-time": "60 Mins",
+                "c1-name": "CrossFit & HIIT",
+                "c1-desc": "Intensive fat burning and physical performance enhancement workouts.",
+                "c1-coach": "Coach: Ahmed",
+                "c2-tag": "Medium Intensity ⚡",
+                "c2-time": "45 Mins",
+                "c2-name": "Kickboxing & Self Defense",
+                "c2-desc": "Learn self-defense skills and burn calories effectively.",
+                "c2-coach": "Coach: Tariq",
+                "c3-tag": "All Levels 🧘",
+                "c3-time": "50 Mins",
+                "c3-name": "Yoga & Stretch",
+                "c3-desc": "Improve flexibility, breathing, and release muscle tension.",
+                "c3-coach": "Coach: Sarah",
+                "c4-name": "Spinning & Cycling",
+                "c4-desc": "Group cycling workouts with energetic music beats.",
+                "c4-coach": "Coach: Majid",
+                "c5-tag": "Power & Strength 💪",
+                "c5-name": "Body Building & Strength",
+                "c5-desc": "Proper technique for lifting weights and building muscle mass.",
+                "c5-coach": "Coach: Fahad",
+                "c6-name": "Core & Abs Workout",
+                "c6-desc": "Intensive focus on strengthening core muscles and defining abs.",
+                "c6-coach": "Coach: Khaled",
+                "plans-tag": "Subscription Plans",
+                "plans-title": "Choose The Right Plan For Your Goals",
+                "plans-desc": "Transparent pricing with no hidden fees. Get extra discount with annual subscriptions!",
+                "billing-monthly": "Monthly Billing",
+                "billing-yearly": "Yearly Billing",
+                "billing-discount": "Save 25%",
+                "plan-1-name": "Basic Plan",
+                "plan-1-desc": "Suitable for beginners to try and explore",
+                "currency": "SAR",
+                "period-monthly": "/ month",
+                "period-yearly": "/ year",
+                "p1-f1": "Full day club access",
+                "p1-f2": "Use of weights & cardio equipment",
+                "p1-f3": "Daily locker usage",
+                "p1-f4": "Group classes access",
+                "p1-f5": "Personal trainer sessions",
+                "plan-btn": "Subscribe Now",
+                "plan-popular": "Most Popular ⭐",
+                "plan-2-name": "Pro Plan",
+                "plan-2-desc": "The comprehensive package for best physical results",
+                "p2-f1": "Unlimited access to all branches",
+                "p2-f2": "Access to all group classes",
+                "p2-f3": "Monthly InBody assessment session",
+                "p2-f4": "Sauna and steam room access",
+                "p2-f5": "2 personal training sessions monthly",
+                "plan-btn-pro": "Subscribe Now & Get Offer",
+                "plan-3-name": "VIP Elite Plan",
+                "plan-3-desc": "Luxurious experience with close personal monitoring",
+                "p3-f1": "All Pro plan features",
+                "p3-f2": "Dedicated personal trainer (8 sessions)",
+                "p3-f3": "Custom nutrition plan & weekly update",
+                "p3-f4": "VIP lounge & guest access",
+                "p3-f5": "Free daily protein shake",
+                "loc-tag": "Location & Working Hours",
+                "loc-title": "Visit Us At Our Main Branch",
+                "loc-desc": "We are happy to welcome you anytime for a free introductory tour inside the gym.",
+                "hours-title": "Official Working Hours",
+                "hours-sat-thu": "Saturday to Thursday:",
+                "hours-fri": "Friday:",
+                "address-title": "Address",
+                "address-desc": "King Fahd Road, Al Sahafa District, Riyadh, Saudi Arabia",
+                "phone-title": "Phone & WhatsApp",
+                "form-title": "Contact Us or Book a Trial Visit",
+                "form-name": "Full Name",
+                "form-phone": "Mobile Number",
+                "form-service": "Inquiry / Desired Service",
+                "opt-1": "Book a Free Trial Visit",
+                "opt-2": "Inquiry About Memberships & Plans",
+                "opt-3": "Personal Training Request",
+                "form-msg": "Your Message (Optional)",
+                "form-submit": "Send Request Now",
+                "map-title": "Click to open branch location on Google Maps",
+                "map-sub": "King Fahd Road - Riyadh",
+                "f-col1-title": "Quick Links",
+                "f-col2-title": "Fitness Programs",
+                "f-col3-title": "Follow Us",
+                "f-col3-desc": "Get daily fitness tips and exclusive offers by following us.",
+                "copyright": "All rights reserved © 2026 <strong>Fitness Zone</strong>",
+                "footer-desc": "Your all-in-one gym to reach the best version of your health and fitness. Motivational environment and state-of-the-art facilities.",
+                "terms": "Terms & Conditions",
+                "privacy": "Privacy Policy",
+                "modal-title": "Confirm Subscription Request",
+                "modal-desc": "You have selected:",
+                "modal-btn": "Confirm & Send to Customer Service",
+                "toast-success": "Your request has been sent successfully!",
+                "toast-contact": "Your message has been received successfully, we will reply soon!",
+                "toast-sales": "Thanks for reaching out! Our sales team will contact you immediately."
+            }
+        };
+
+        let currentLang = 'ar';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const langToggleBtn = document.getElementById('lang-toggle');
+            const langToggleMobile = document.getElementById('lang-toggle-mobile');
+            const htmlRoot = document.getElementById('html-root');
+            const langText = document.getElementById('lang-text');
+
+            function switchLanguage(lang) {
+                currentLang = lang;
+                htmlRoot.setAttribute('lang', lang);
+                htmlRoot.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+                
+                langText.textContent = lang === 'ar' ? "English" : "عربي";
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        el.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+
+            langToggleBtn.addEventListener('click', () => {
+                switchLanguage(currentLang === 'ar' ? 'en' : 'ar');
+            });
+
+            langToggleMobile.addEventListener('click', () => {
+                switchLanguage(currentLang === 'ar' ? 'en' : 'ar');
+            });
+
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            const scheduleTabs = document.querySelectorAll('.schedule-tab');
+            const classCards = document.querySelectorAll('.class-card');
+
+            scheduleTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    scheduleTabs.forEach(t => {
+                        t.classList.remove('bg-brand-neon', 'text-black', 'shadow-neon-glow');
+                        t.classList.add('bg-brand-card', 'text-slate-300');
+                    });
+                    tab.classList.remove('bg-brand-card', 'text-slate-300');
+                    tab.classList.add('bg-brand-neon', 'text-black', 'shadow-neon-glow');
+
+                    const selectedDay = tab.getAttribute('data-day');
+
+                    classCards.forEach(card => {
+                        const days = card.getAttribute('data-days').split(',');
+                        if (selectedDay === 'all' || days.includes(selectedDay)) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            const btnMonthly = document.getElementById('btn-monthly');
+            const btnYearly = document.getElementById('btn-yearly');
+            const planPrices = document.querySelectorAll('.plan-price');
+            const planPeriods = document.querySelectorAll('.plan-period');
+
+            btnMonthly.addEventListener('click', () => {
+                btnMonthly.className = "px-6 py-2.5 rounded-xl font-bold text-sm transition-all bg-brand-neon text-black";
+                btnYearly.className = "px-6 py-2.5 rounded-xl font-bold text-sm text-slate-400 hover:text-white transition-all flex items-center gap-2";
+
+                planPrices.forEach(price => {
+                    price.textContent = price.getAttribute('data-monthly');
+                });
+                planPeriods.forEach(p => p.textContent = currentLang === 'ar' ? '/ شهرياً' : '/ month');
+            });
+
+            btnYearly.addEventListener('click', () => {
+                btnYearly.className = "px-6 py-2.5 rounded-xl font-bold text-sm transition-all bg-brand-neon text-black";
+                btnMonthly.className = "px-6 py-2.5 rounded-xl font-bold text-sm text-slate-400 hover:text-white transition-all";
+
+                planPrices.forEach(price => {
+                    price.textContent = price.getAttribute('data-yearly');
+                });
+                planPeriods.forEach(p => p.textContent = currentLang === 'ar' ? '/ سنوي' : '/ year');
+            });
+
+            const subModal = document.getElementById('sub-modal');
+            const modalBox = document.getElementById('modal-box');
+            const closeModal = document.getElementById('close-modal');
+            const selectedPlanName = document.getElementById('selected-plan-name');
+            const subscribeBtns = document.querySelectorAll('.subscribe-btn');
+
+            subscribeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const plan = btn.getAttribute('data-plan');
+                    selectedPlanName.textContent = plan;
+                    
+                    subModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        subModal.classList.remove('opacity-0');
+                        modalBox.classList.remove('scale-95');
+                        modalBox.classList.add('scale-100');
+                    }, 10);
+                });
+            });
+
+            function hideModal() {
+                subModal.classList.add('opacity-0');
+                modalBox.classList.remove('scale-100');
+                modalBox.classList.add('scale-95');
+                setTimeout(() => {
+                    subModal.classList.add('hidden');
+                }, 300);
+            }
+
+            closeModal.addEventListener('click', hideModal);
+            subModal.addEventListener('click', (e) => {
+                if (e.target === subModal) hideModal();
+            });
+
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+
+            function showToast(msg) {
+                toastMessage.textContent = msg;
+                toast.classList.remove('translate-y-20', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                }, 3500);
+            }
+
+            document.getElementById('modal-sub-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                hideModal();
+                showToast(translations[currentLang]["toast-sales"]);
+                e.target.reset();
+            });
+
+            document.getElementById('contact-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                showToast(translations[currentLang]["toast-contact"]);
+                e.target.reset();
+            });
+
+            const counters = document.querySelectorAll('.counter');
+            let counted = false;
+
+            window.addEventListener('scroll', () => {
+                const homeSection = document.getElementById('home');
+                const position = homeSection.getBoundingClientRect();
+
+                if (position.top < window.innerHeight && !counted) {
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const speed = 200;
+                        const updateCount = () => {
+                            const count = +counter.innerText;
+                            const inc = target / speed;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count + inc);
+                                setTimeout(updateCount, 20);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                    counted = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
